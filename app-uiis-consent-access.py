@@ -47,6 +47,7 @@ try:
     if st.query_params["key"]:
         end_to_end_key = st.query_params["key"]
         # st.success(end_to_end_key)
+        st.text_input("Enter token from QR Code", value=token_val,type = "password", disabled=True)
 except Exception as e:
     st.error(f"Invalid request query params : {e}")
 
