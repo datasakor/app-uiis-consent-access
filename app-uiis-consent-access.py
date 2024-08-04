@@ -40,13 +40,13 @@ st.title("Access PII Information")
 token_val = ""
 end_to_end_key = ""
 try:
-    if st.query_params["token"]:
+    if st.query_params["t"]:
         token_val = st.query_params["token"]
         # st.success(token_val)
         st.text_input("Token from QR Code", value=token_val, type = "password", disabled=True)
 
     if st.query_params["key"]:
-        end_to_end_key = st.query_params["key"]
+        end_to_end_key = st.query_params["k"]
         # st.success(end_to_end_key)
         st.text_input("Share Key", value=end_to_end_key, type = "password", disabled=True)
 except Exception as e:
