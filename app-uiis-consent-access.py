@@ -52,9 +52,6 @@ try:
 except Exception as e:
     st.error(f"Invalid request query params : {e}")
 
-
-# SECRET_KEY = "iKD4HAU4w0p-d3Z5pEMARP3v2KQVtikaFliY8At5jWU="
-
 token_str = st.text_input("Enter token from QR Code", value=token_val, disabled=True)
 
 if token_str:
