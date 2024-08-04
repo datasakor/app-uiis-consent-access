@@ -45,7 +45,7 @@ try:
         # st.success(token_val)
         st.text_input("Token from QR Code", value=token_val, type = "password", disabled=True)
 
-    if st.query_params["key"]:
+    if st.query_params["k"]:
         end_to_end_key = st.query_params["k"]
         # st.success(end_to_end_key)
         st.text_input("Share Key", value=end_to_end_key, type = "password", disabled=True)
