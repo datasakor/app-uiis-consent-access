@@ -41,7 +41,7 @@ token_val = ""
 end_to_end_key = ""
 try:
     if st.query_params["t"]:
-        token_val = st.query_params["token"]
+        token_val = st.query_params["d"]
         # st.success(token_val)
         st.text_input("Token from QR Code", value=token_val, type = "password", disabled=True)
 
