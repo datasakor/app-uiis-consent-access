@@ -31,7 +31,7 @@ def decode_token(token):
 st.title("Access PII Information")
 
 # # Extract the token from the URL
-query_params = st.query_params()
+# query_params = st.query_params()
 
 # You can read query params using key notation
 token_val = ""
