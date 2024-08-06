@@ -23,7 +23,7 @@ def decode_token(token):
         else:
             return None
     except Exception as e:
-        print(f"Error decoding token: {e}")
+        print(f"Error decoding token")
         return None
 
 
@@ -47,7 +47,7 @@ try:
         # st.success(end_to_end_key)
         st.text_input("Share Key", value=end_to_end_key, type = "password", disabled=True)
 except Exception as e:
-    st.error(f"Invalid request query params : {e}")
+    st.error(f"Invalid request query params")
 
 token_str = st.text_input("Enter token from QR Code", value=token_val, disabled=True)
 
