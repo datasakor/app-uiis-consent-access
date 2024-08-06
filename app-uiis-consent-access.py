@@ -71,39 +71,39 @@ st.title("Access PII Information")
 # # # Extract the token from the URL
 # query_params = st.query_params()
 
-# You can read query params using key notation
-token_val = ""
-end_to_end_key = ""
-try:
-    if st.query_params["d"]:
-        token_val = st.query_params["d"]
-        # st.success(token_val)
-        st.text_input("Token from QR Code", value=token_val, type = "password", disabled=True)
+# # You can read query params using key notation
+# token_val = ""
+# end_to_end_key = ""
+# try:
+#     if st.query_params["d"]:
+#         token_val = st.query_params["d"]
+#         # st.success(token_val)
+#         st.text_input("Token from QR Code", value=token_val, type = "password", disabled=True)
 
-    if st.query_params["k"]:
-        end_to_end_key = st.query_params["k"]
-        # st.success(end_to_end_key)
-        st.text_input("Share Key", value=end_to_end_key, type = "password", disabled=True)
-except Exception as e:
-    st.error(f"Invalid request query params : {e}")
+#     if st.query_params["k"]:
+#         end_to_end_key = st.query_params["k"]
+#         # st.success(end_to_end_key)
+#         st.text_input("Share Key", value=end_to_end_key, type = "password", disabled=True)
+# except Exception as e:
+#     st.error(f"Invalid request query params : {e}")
 
-token_str = st.text_input("Enter token from QR Code", value=token_val, disabled=True)
+# token_str = st.text_input("Enter token from QR Code", value=token_val, disabled=True)
 
-if token_str:
-    if st.button("Verify"):
-        try:
-            secrete_key = end_to_end_key
-            cipher_suite = Fernet(secrete_key)
+# if token_str:
+#     if st.button("Verify"):
+#         try:
+#             secrete_key = end_to_end_key
+#             cipher_suite = Fernet(secrete_key)
 
-            token_bytes = base64.urlsafe_b64decode(token_str)
-            data = decode_token(token_bytes)
-            if data:
-                st.write("Access granted. Here is the PII:")
-                st.write(data)
-            else:
-                st.error("Token expired or invalid.")
-        except Exception as e:
-            st.error(f"Error: {e}")
-else:
-    st.error("No token provided.")
+#             token_bytes = base64.urlsafe_b64decode(token_str)
+#             data = decode_token(token_bytes)
+#             if data:
+#                 st.write("Access granted. Here is the PII:")
+#                 st.write(data)
+#             else:
+#                 st.error("Token expired or invalid.")
+#         except Exception as e:
+#             st.error(f"Error: {e}")
+# else:
+#     st.error("No token provided.")
 
