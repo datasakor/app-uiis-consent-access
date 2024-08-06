@@ -11,6 +11,18 @@ import base64
 import ast
 from datetime import datetime
 
+import os
+from streamlit_telegram_login import TelegramLoginWidgetComponent
+from streamlit_telegram_login.helpers import YamlConfig
+
+parent_dir = os.path.dirname(os.path.abspath(__file__))
+
+st.write(parent_dir)
+
+config = YamlConfig(f"{parent_dir}/config.yaml")
+telegram_login = TelegramLoginWidgetComponent(**config.config)
+
+
 # Secret key for token encryption (must match the key used during token generation)
 
 
