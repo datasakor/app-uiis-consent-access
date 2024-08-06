@@ -23,6 +23,29 @@ config = YamlConfig(f"{parent_dir}/config.yaml")
 telegram_login = TelegramLoginWidgetComponent(**config.config)
 
 
+config = YamlConfig(f"{parent_dir}/config.yaml")
+telegram_login = TelegramLoginWidgetComponent(**config.config)
+
+st.write(telegram_login.secret_key)
+
+st.write("## Example")
+if not st.session_state["username"]:
+    st.link_button("Verify Data", url="https://app-uiis-consent-access-pii.streamlit.app/")
+    value = telegram_login.button
+
+    bot_name = telegram_login.bot_username
+    if value:
+        st.warning(f"{value},bot: {bot_name}")
+
+    st.warning(f"{value},bot: {bot_name}")
+else:
+    st.write(telegram_login.get_session)
+
+    clicked = st.button("Clear cookies")
+    if clicked:
+        telegram_login.clear_session()
+        st.write("Cookies have been successfully cleared")
+
 # Secret key for token encryption (must match the key used during token generation)
 
 
